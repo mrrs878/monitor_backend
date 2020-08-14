@@ -6,7 +6,9 @@ WORKDIR /app
 
 COPY . /app
 RUN yarn install
-RUN npm run build
+RUN build build
 RUN mv ./dist/* ./
 
 EXPOSE 3000
+
+CMD BUILD_ENV=docker node app.js
