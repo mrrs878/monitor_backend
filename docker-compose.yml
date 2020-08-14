@@ -6,15 +6,15 @@ services:
     volumes:
       - ~/data/db:/data/db
     networks:
-      - dashboard_backend-network
-  dashboard_backend:
-    image: mrrs878/dashboard_backend:latest
+      - monitor_backend-network
+  monitor_backend:
+    image: mrrs878/monitor_backend:latest
     depends_on:
       - database
     ports:
       - 3000:3000
     networks:
-      - dashboard_backend-network
+      - monitor_backend-network
 networks:
-  dashboard_backend-network:
+  monitor_backend-network:
     driver: bridge
