@@ -11,4 +11,4 @@ RUN mv ./dist/* ./
 
 EXPOSE 3000
 
-CMD [ "node", "dist/main" ]
+CMD [ "node", "main" ]
