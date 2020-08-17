@@ -9,8 +9,7 @@ services:
     networks:
       - monitor_backend-network
   monitor_backend:
-    # image: mrrs878/monitor_backend:latest
-    image: monitor_test
+    image: mrrs878/monitor_backend:latest
     container_name: monitor_backend
     depends_on:
       - monitor_database
