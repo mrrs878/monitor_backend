@@ -1,16 +1,19 @@
 version: '3.7'
 services:
-  database:
+  monitor_database:
     image: mongo
+    container_name: monitor_database
     restart: always
     volumes:
       - ~/data/db:/data/db
     networks:
       - monitor_backend-network
   monitor_backend:
-    image: mrrs878/monitor_backend:latest
+    # image: mrrs878/monitor_backend:latest
+    image: monitor_test
+    container_name: monitor_backend
     depends_on:
-      - database
+      - monitor_database
     ports:
       - 3000:3000
     networks:
