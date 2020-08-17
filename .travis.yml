@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+- '12'
+services:
+- docker
+addons:
+  ssh_known_hosts:
+    - 118.190.140.52
+cache:
+  directories:
+    - node_modules
+before_install:
+- eval "$(ssh-agent -s)"
+- chmod 600 ~/.ssh/id_rsa
+- ssh-add ~/.ssh/id_rsa
+- git pull
+install:
+  - yarn install
+after_success:
+  - chmod 600 ~/.ssh/id_rsa
+  - ssh travis@118.190.140.52 -o StrictHostKeyChecking=no 'cd ~/monitor_backend && sh ./update.sh'
+script:
+- yarn build
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker build -t mrrs878/monitor_backend:latest .
+- docker push mrrs878/monitor_backend:latest
