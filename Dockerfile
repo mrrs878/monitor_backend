@@ -4,12 +4,12 @@ RUN rm -rf /app
 RUN mkdir /app
 WORKDIR /app
 
-RUN rm -rf /node_modules
-COPY . /app
+COPY package.json yarn.lock ./
 RUN yarn install
+
+COPY . .
 RUN yarn build
-RUN mv ./dist/* ./
 
 EXPOSE 3000
 
-CMD [ "node", "main" ]
+CMD [ "node", "dist/main" ]
