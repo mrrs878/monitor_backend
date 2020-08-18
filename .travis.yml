@@ -24,6 +24,6 @@ after_success:
   ./update.sh'
 script:
 - yarn build
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker build -t mrrs878/monitor_backend:latest .
-- docker push mrrs878/monitor_backend:latest
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" registry.cn-qingdao.aliyuncs.com --password-stdin
+- docker build -t registry.cn-qingdao.aliyuncs.com/mrrs878/monitor_backend:latest .
+- docker push registry.cn-qingdao.aliyuncs.com/mrrs878/monitor_backend:latest
