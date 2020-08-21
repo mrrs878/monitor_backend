@@ -17,6 +17,7 @@ before_install:
 - ssh-add ~/.ssh/id_rsa
 after_success:
 - chmod 600 ~/.ssh/id_rsa
-scripts:
 - ssh travis@118.190.140.52 -o StrictHostKeyChecking=no 'cd ~/monitor_backend && sh
   ./update.sh'
+scripts:
+- yarn install

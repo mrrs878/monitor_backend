@@ -12,4 +12,4 @@ docker-compose down
 echo "restarting app..."
 docker-compose up -d
 
-echo "awesome, you succeeded!"
+echo "hooray, succeeded!"
