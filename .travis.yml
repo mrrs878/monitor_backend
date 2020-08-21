@@ -15,13 +15,7 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 ~/.ssh/id_rsa
 - ssh-add ~/.ssh/id_rsa
-- git pull
 after_success:
 - chmod 600 ~/.ssh/id_rsa
 - ssh travis@118.190.140.52 -o StrictHostKeyChecking=no 'cd ~/monitor_backend && sh
   ./update.sh'
-script:
-- yarn build
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" registry.cn-shanghai.aliyuncs.com --password-stdin
-- docker build -t registry.cn-shanghai.aliyuncs.com/mrrs878/monitor_backend:latest .
-- docker push registry.cn-shanghai.aliyuncs.com/mrrs878/monitor_backend:latest

@@ -9,7 +9,7 @@ services:
     networks:
       - monitor_backend-network
   monitor_backend:
-    image: registry.cn-qingdao.aliyuncs.com/mrrs878/monitor_backend:latest
+    image: registry.cn-shanghai.aliyuncs.com/mrrs878/monitor_backend:latest
     container_name: monitor_backend
     depends_on:
       - monitor_database
