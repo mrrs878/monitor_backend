@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Req } from '@nestjs/common';
 import { Request } from 'express';
 import AuthService from '../service/auth';
-import { User } from '../schema/user';
+import { User } from '../models/user';
 
 @Controller('/auth')
 export default class AuthController {

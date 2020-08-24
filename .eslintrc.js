@@ -36,5 +36,6 @@ module.exports = {
     'no-plusplus': 0,
     'consistent-return': 0,
     'no-param-reassign': 0,
+    'linebreak-style': ['off', 'windows']
   },
 };
