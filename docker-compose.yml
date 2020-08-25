@@ -5,7 +5,7 @@ services:
     container_name: monitor_database
     restart: always
     volumes:
-      - ~/data/db:/data/db
+      - ~/data/monitor_backend/mongo:/data
     networks:
       - monitor_backend-network
   monitor_backend:

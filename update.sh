@@ -3,6 +3,9 @@
 echo "updating code..."
 git pull
 
+echo "installing packages..."
+yarn install
+
 echo "building image..."
 docker build -t registry.cn-shanghai.aliyuncs.com/mrrs878/monitor_backend:latest .
 

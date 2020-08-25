@@ -18,11 +18,11 @@ export default class ArticleService {
   }
 
   async updateArticleById(article: Article): Promise<any> {
-    const data = await this.userModel.updateOne({ _id: article._id }, article).exec();
-    console.log(data);
-    
-    const { ok, nModified } = data;
-    if (ok && nModified === 1) return { success: true, code: 0, msg: '' };
-    return { success: false, code: 1, msg: '修改失败' };
+    try {
+      const data = await this.userModel.findOneAndUpdate({ _id: article._id }, { title: article.title }).exec();
+      return { success: true, code: 0, msg: '', data };
+    } catch (e) {
+      return { success: false, code: -1, msg: String(e) };
+    }
   }
 }
