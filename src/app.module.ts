@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import Auth from './modules/auth';
 import ArticleModule from './modules/article';
+import MonitorModule from './modules/monitor';
 import DB from './modules/db';
 
 @Module({
@@ -8,6 +9,7 @@ import DB from './modules/db';
     DB,
     Auth,
     ArticleModule,
+    MonitorModule,
   ],
 })
 export default class AppModule {}

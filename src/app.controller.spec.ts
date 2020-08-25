@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AuthController } from './controller/auth';
-import { Auth } from './service/auth';
+import AuthController from './controller/auth';
+import AuthService from './service/auth';
 
 describe('AppController', () => {
   let appController: AuthController;
@@ -15,8 +15,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
-    });
+    // it('should return "Hello World!"', () => {
+    //   expect(appController.getHello()).toBe('Hello World!');
+    // });
   });
 });
