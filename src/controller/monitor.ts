@@ -12,8 +12,8 @@ export default class MonitorController {
   }
 
   @Get('/')
-  reportError1(@Query() query) {
-    console.log(query);
+  reportError1(@Req() req) {
+    console.log(JSON.parse(decodeURI(req?.url.match(/error=([\s\S]+)/)[1])));
     return this.monitorService.report('');
   }
 }
